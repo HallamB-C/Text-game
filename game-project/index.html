@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Tribe of Lorem</title>
+    <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="container">
+<!--HUD and Turn counter row-->
+      <div class="row">
+        <div  id="HUD" class="col-md-6" style="width: 800px; height: 200px;">
+          This is where information will appear
+        </div>
+        <div id="TurnCounter" class="col-md-2">
+
+        </div>
+        <div class="col-md-2">
+          <button type="button" name="button" id="Pause">Pause</button>
+        </div>
+        <div class="col-md-2">
+          <button type="button" name="button" id="NextTurn">Next turn</button>
+        </div>
+      </div>
+<!--Resources row-->
+      <div class="row">
+<!--Food column-->
+        <div class="col-md-1">
+          <div class="row">
+            <div class="col-md-1 myIcon">
+              <img class="img img-responsive" src="images/food.png" alt="Food">
+              <span class="tooltiptext">Your total food</span>
+            </div>
+          </div>
+<!--Total food-->
+          <div class="row">
+            <p id="FoodCount"  class="statCount"></p>
+          </div>
+        </div>
+<!--Wood column-->
+        <div class="col-md-1">
+          <div class="row">
+            <div class="col-md-1 myIcon">
+              <img class="img img-responsive" src="images/wood.png" alt="Food">
+              <span class="tooltiptext">Your total wood</span>
+            </div>
+          </div>
+<!--Total wood-->
+          <div class="row">
+            <p id="WoodCount"  class="statCount"></p>
+          </div>
+        </div>
+<!--Stone column-->
+        <div class="col-md-1">
+          <div class="row">
+            <div class="col-md-1 myIcon">
+              <img class="img img-responsive" src="images/stone.png" alt="Food">
+              <span class="tooltiptext">Your total stone</span>
+            </div>
+          </div>
+<!--Total stone-->
+          <div class="row">
+            <p id="StoneCount"  class="statCount"></p>
+          </div>
+        </div>
+<!--Metal column-->
+        <div class="col-md-1">
+          <div class="row">
+            <div class="col-md-1 myIcon">
+              <img class="img img-responsive" src="images/metal.png" alt="Food">
+              <span class="tooltiptext">Your total metal</span>
+            </div>
+          </div>
+<!--Total metal-->
+          <div class="row">
+            <p id="MetalCount"  class="statCount"></p>
+          </div>
+        </div>
+<!--Gold column-->
+        <div class="col-md-1">
+          <div class="row">
+            <div class="col-md-1 myIcon">
+              <img class="img img-responsive" src="images/gold.png" alt="Food">
+              <span class="tooltiptext">Your total gold</span>
+            </div>
+          </div>
+<!--Total gold-->
+          <div class="row">
+            <p id="GoldCount"  class="statCount"></p>
+          </div>
+        </div>
+<!--Daily production column-->
+        <div class="col-md-1 myIcon">
+          <img class="img img-responsive" src="images/increase.png" alt="Daily production">
+          <span class="tooltiptext">Your daily production</span>
+        </div>
+        <div class="col-md-1">
+          <div class="row">
+            <div id="GrowthCountPD" class="col-md-1 changeCount"></div>
+          </div>
+          <div class="row">
+            <div id="LumberCount" class="col-md-1 changeCount"></div>
+          </div>
+          <div class="row">
+            <div id="RockCount" class="col-md-1 changeCount"></div>
+          </div>
+          <div class="row">
+            <div id="OreCount" class="col-md-1 changeCount"></div>
+          </div>
+          <div class="row">
+            <div id="GoldOreCount" class="col-md-1 changeCount"></div>
+          </div>
+        </div>
+<!--Daily consumption-->
+        <div class="col-md-1 myIcon">
+          <img class="img img-responsive" src="images/decrease.png" alt="Daily consumption">
+          <span class="tooltiptext">Your daily consumption</span>
+        </div>
+        <div class="col-md-1">
+          <div class="row">
+            <div id="HungerCountPD" class="col-md-1 changeCount"></div>
+          </div>
+        </div>
+        <div class="col-md-1">
+          <div class="row">
+            <div class="col-md-1 myIcon">
+              <img class="img img-responsive" src="images/population.png" alt="Houses">
+              <span class="tooltiptext">Your total population. Inlcudes assigned and non-assigned people</span>
+            </div>
+          </div>
+          <div class="row">
+            <p id="PopulationCount" class="statCount"></p>
+          </div>
+        </div>
+        <div class="col-md-1">
+          <div class="row">
+            <div class="col-md-1 myIcon">
+              <p id="FreeSpaceCount" class="statCount"></p>
+              <span class="tooltiptext">How much unused housing you have</span>
+            </div>
+          </div>
+        </div>
+      </div>
+<!--People row-->
+  <div class="row">
+    <div class="col-md-1">
+      <div class="row">
+        <div class="col-md-1 myIcon">
+          <img class="img img-responsive" src="images/people.png" alt="People">
+          <span class="tooltiptext">Your non-assigned people. They are needed for reporducing and building</span>
+        </div>
+      </div>
+      <div class="row">
+        <p id="PeopleCount" class="statCount"></p>
+      </div>
+    </div>
+  <!--Hunter-->
+    <div class="col-md-2">
+      <div class="row">
+        <div class="col-md-8 myIcon">
+          <img class="img img-responsive" src="images/hunter.png" alt="Total Hunters">
+          <span class="tooltiptext">Hunters produce at least 3 food a day. Sometimes they produce more.</span>
+        </div>
+        <div class="col-md-4 col-md-pull-1">
+          <img  id="AddHunter" class="img img-responsive myIconIncrease" src="images/increase.png" alt="Add a Hunter">
+          <span class="tooltiptext">Produce a hunter for 6 food and 5 wood.</span>
+        </div>
+        <div class="col-md-4 col-md-pull-1">
+          <img  id="RemoveHunter" class="img img-responsive myIconDecrease" src="images/decrease.png" alt="Remove a Hunter">
+          <span class="tooltiptext">Remove a hunter. Resources are not refunded.</span>
+        </div>
+      </div>
+      <div class="row">
+        <p id="HunterCount"  class="statCount" ></p>
+      </div>
+    </div>
+  <!--Woodcutter-->
+    <div class="col-md-2">
+      <div class="row">
+        <div class="col-md-8 myIcon">
+          <img class="img img-responsive" src="images/woodcutter.png" alt="Total Woodcutters">
+          <span class="tooltiptext">Woodcutters produce 3 wood every day</span>
+        </div>
+        <div class="col-md-4 col-md-pull-1">
+          <img  id="AddWoodcutter" class="img img-responsive myIconIncrease" src="images/increase.png" alt="Add a Woodcutter">
+          <span class="tooltiptext">Produce a woodcutter for 6 food and 3 wood.</span>
+        </div>
+        <div class="col-md-4 col-md-pull-1">
+          <img  id="RemoveWoodcutter" class="img img-responsive myIconDecrease" src="images/decrease.png" alt="Remove a Woodcutter">
+          <span class="tooltiptext">Remove a woodcutter. Resources are not refunded.</span>
+        </div>
+      </div>
+      <div class="row">
+        <p id="WoodcutterCount"  class="statCount" ></p>
+      </div>
+    </div>
+  <!--Farmer-->
+    <div class="col-md-2">
+      <div class="row">
+        <div class="col-md-1 myIcon">
+          <img class="img img-responsive" src="images/farmer.png" alt="Total Farmers">
+          <span class="tooltiptext">Farmers work the farm each day to make food. If they aren't working no food is made that day.</span>
+        </div>
+        <div class="col-md-4 col-md-pull-1">
+          <img  id="AddFarmer" class="img img-responsive myIconIncrease" src="images/increase.png" alt="Add a Farmer">
+          <span class="tooltiptext">Produce a farmer for 6 food.</span>
+        </div>
+        <div class="col-md-4 col-md-pull-1">
+          <img  id="RemoveFarmer" class="img img-responsive myIconDecrease" src="images/decrease.png" alt="Remove a Farmer">
+          <span class="tooltiptext">Remove a farmer. Resources are not refunded.</span>
+        </div>
+      </div>
+      <div class="row">
+        <p id="FarmerCount"  class="statCount" ></p>
+      </div>
+    </div>
+  </div>
+<!--Buildings row-->
+  <div class="row">
+    <!--Total buildings row-->
+    <div class="col-md-1">
+      <div class="row">
+        <div class="col-md-1 myIcon">
+          <img class="img img-responsive" src="images/buildings.png" alt="People">
+          <span class="tooltiptext">Your total buildings</span>
+        </div>
+      </div>
+      <div class="row">
+        <p id="BuildingCount" class="statCount"></p>
+      </div>
+    </div>
+    <!--Houses-->
+      <div class="col-md-2">
+          <div class="row">
+            <div class="col-md-8 myIcon">
+              <img class="img img-responsive" src="images/hut.png" alt="Houses">
+              <span class="tooltiptext">Your huts. Each hut can hold 5 people.</span>
+            </div>
+            <div class="col-md-4 col-md-pull-1">
+              <img  id="BuildHut" class="img img-responsive myIconIncrease" src="images/increase.png" alt="Build a House">
+              <span class="tooltiptext">Build a hut for 20 wood.</span>
+            </div>
+            <div class="col-md-4 col-md-pull-1">
+              <img  id="RemoveHut" class="img img-responsive myIconDecrease" src="images/decrease.png" alt="Remove a House">
+            </div>
+          </div>
+        <div class="row">
+          <p id="HutCount" class="statCount"></p>
+        </div>
+      </div>
+    <!--Houses-->
+      <div class="col-md-2">
+          <div class="row">
+            <div class="col-md-8 myIcon">
+              <img class="img img-responsive" src="images/barn.png" alt="Houses">
+              <span class="tooltiptext">Your barns. Each barn stores a total of 600 resources. You can store a total of 200 resources before needing a barn</span>
+            </div>
+            <div clas
+            <div class="col-md-4 col-md-pull-1">
+              <img  id="BuildBarn" class="img img-responsive myIconIncrease" src="images/increase.png" alt="Build a House">
+              <span class="tooltiptext">Build a barn for 60 wood. Requires 2 people.</span>
+            </div>
+            <div class="col-md-4 col-md-pull-1">
+              <img  id="RemoveBarn" class="img img-responsive myIconDecrease" src="images/decrease.png" alt="Remove a House">
+            </div>
+          </div>
+        <!-- <div class="row">
+          <p id="BarnCount" class="statCount"></p>
+        </div> -->
+      <div class="row">
+        <p id="BarnSpaceCount" class="statCount"></p>
+      </div>
+      </div>
+    <!--Build a field-->
+      <div class="col-md-2">
+        <div class="row">
+          <div class="col-md-8 myIcon">
+            <img class="img img-responsive" src="images/field.png" alt="Total fields">
+            <span class="tooltiptext">Fields produce food every month. The more farmers there are the more food they make.</span>
+          </div>
+          <div class="col-md-4 col-md-pull-1">
+            <img  id="BuildField" class="img img-responsive myIconIncrease" src="images/increase.png" alt="Build a Field">
+            <span class="tooltiptext">Build a field for 20 wood</span>
+          </div>
+          <div class="col-md-4 col-md-pull-1">
+            <img  id="RemoveField" class="img img-responsive myIconDecrease" src="images/decrease.png" alt="Remove a Field">
+          </div>
+        </div>
+        <div class="row">
+          <p id="FieldSpaceCount"  class="statCount" ></p>
+        </div>
+      </div>
+    </div>
+  <!--Template row-->
+    <div class="row">
+      <!--Build a Dunno-->
+      <div class="col-md-2">
+        <div class="row">
+          <div class="col-md-8 myIcon">
+            <img class="img img-responsive" src="images/add.png" alt="">
+            <span class="tooltiptext">This is just a placeholder</span>
+          </div>
+          <div class="col-md-4 col-md-pull-1">
+            <img  id="Add" class="img img-responsive myIconIncrease" src="images/increase.png" alt="Add a ">
+          </div>
+          <div class="col-md-4 col-md-pull-1">
+            <img  id="Remove" class="img img-responsive myIconDecrease" src="images/decrease.png" alt="Remove a ">
+          </div>
+        </div>
+        <p id="Count"  class="statCount" ></p>
+      </div>
+    </div>
+<!--Remove Role row-->
+</main>
+    <script src="main.js"></script>
+  </body>
+</html>

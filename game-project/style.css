@@ -1,0 +1,117 @@
+main{
+  margin-top: 50px;
+}
+#HUD{
+  background-color: black;
+  color: white;
+  font-size: 24px;
+  overflow-y: scroll;
+}
+#TurnCounter{
+  background-color: black;
+  color: white;
+  font-size: 24px;
+}
+.statCount{
+  background-color: black;
+  color: white;
+  width: 100px;
+  border: solid white 1px;
+  text-align: center;
+}
+.changeCount{
+  background-color: black;
+  color: white;
+  width: 100px;
+  border: solid white 1px;
+  text-align: left;
+  font-size: 16px;
+}
+.myIcon{
+  height: 100px;
+  width: 100px;
+  margin: 0;
+  border: solid white 1px;
+  padding: 0;
+}
+.myIconSmallWide{
+  height: 25px;
+  width: 100px;
+  margin: 0;
+  border: solid white 1px;
+  padding: 0;
+}
+.myIconIncrease{
+  height: 50px;
+  width: 50px;
+}
+.myIconDecrease{
+  height: 50px;
+  width: 50px;
+}
+.col-md-4 > .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.col-md-4 .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.col-md-4:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+.myIcon > .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.myIcon .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.myIcon:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
